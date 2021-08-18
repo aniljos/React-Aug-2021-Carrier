@@ -1,4 +1,4 @@
-Training Program on [React]
+## Training Program on [React]
 
 ### Topics
 
