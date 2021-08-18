@@ -2,31 +2,31 @@ import logo from './logo.svg';
 import './App.css';
 import Hello from './components/hello';
 import Counter from './components/counter';
+import '../node_modules/bootstrap/dist/css/bootstrap.css'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <section>
-            <Hello message="React"/>
-            <Hello message="JSX"/>
+    <div>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="#">React</a>
+          <ul className="nav">
+            <li className="nav-item">
+              <a className="nav-link active" href="#">Home</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Counter</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Products</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Login</a>
+            </li>
+          </ul>
+        </div>
 
-            <Counter title="Count"/>
-            <Counter title="Value"/>
-      </section>
+      </nav>
     </div>
   );
 }
