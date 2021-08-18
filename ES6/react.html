@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.js" integrity="sha512-/1uYu3K5HmOTNdhaOt6Rh7qQgLk/zn0kfw4nqNtqbpACxAx2tKp+lXJ4tnx3zn0vMq4n97+1eKI0vfdU0x+NHg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <h3>React</h3>
+    <div id="app1"></div>
+    <div id="app2"></div>
+    <div id="app3"></div>
+    <div id="app4"></div>
+
+    <script type="text/babel">
+        // <div>This is a React Element</div>
+        var ele1 = React.createElement("div", null, "This is a React Element");
+        ReactDOM.render(ele1, document.getElementById("app1"));
+
+        // <div><h4>This is a React Element</h4></div>
+        //var ele2 = React.createElement("div", null, "<h4>This is a React Element</h4>");
+        var ele2 = React.createElement("div", null, 
+                        React.createElement("h4", null, "This is a React Element"));
+        ReactDOM.render(ele2, document.getElementById("app2"));
+
+        //JSX
+        ReactDOM.render(<div><h4>This is JSX React Element</h4></div>, document.getElementById("app3"));
+
+        //Component(reuseable)
+        function MyComponent(){
+            //return the JSX(View)
+            return (
+                <div>
+                    <h4>This is a React Component</h4>
+                </div>
+            );
+        }
+        ReactDOM.render(<MyComponent/>, document.getElementById("app4"));
+
+
+
+
+    </script>
+</body>
+
+</html>
