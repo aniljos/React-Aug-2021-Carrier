@@ -15,7 +15,9 @@ Training Program on [React]
 ### Commands
 
 1. npx create-react-app	the-awesome-app
-2. Start Application: cd the-awesome-app && npm start
+2. Start Application: <mark>cd the-awesome-app</mark>  && <mark>npm start</mark>
+3. Start Mock REST API: <mark>npm start</mark> 
+
 
 ### Repositories
 
