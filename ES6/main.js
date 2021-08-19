@@ -35,3 +35,18 @@ const squares = numbers.map(item => item * item);
 console.log(squares);
 
 
+let user1 = {id: 1, name: "Anil"};
+
+// const id = user1.id;
+// const name = user1.name;
+
+//destructuring
+
+const {id, name} = user1;
+
+let data = ["test", "abc"]
+
+//const t1 = data[0];
+const [t1, t2] = data;
+
+
