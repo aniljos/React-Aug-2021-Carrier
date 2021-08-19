@@ -66,6 +66,27 @@ class ListProducts extends PureComponent{
             selectedProduct: product
         })
     }
+    editUpdate = async (updatedProduct) => {
+        //alert("in update")
+
+        try {
+            await axios.put(this.url + "/" + updatedProduct.id, updatedProduct);
+            this.fetch();
+            this.setState({
+                selectedProduct: null
+            });
+        } catch (error) {
+            alert("failed to update")
+        }
+    }
+
+    editCancel = (msg) => {
+        alert(msg);
+
+        this.setState({
+            selectedProduct: null
+        });
+    }
 
    
     renderProducts(){
@@ -99,8 +120,13 @@ class ListProducts extends PureComponent{
 
                 <div>
                    {this.state.selectedProduct !== null ? 
-                            <EditProduct product={this.state.selectedProduct} /> : null }
+                            <EditProduct 
+                                key={this.state.selectedProduct.id} 
+                                product={this.state.selectedProduct}
+                                onSave={this.editUpdate}
+                                onCancel={this.editCancel} /> : null }
                 </div>
+                <br/><br/><br/><br/><br/>
             </div>
         )
     }

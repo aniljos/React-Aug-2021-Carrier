@@ -5,6 +5,7 @@ import Counter from './components/counter';
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import ListProducts from './components/ListProducts';
+import GadgetStore from './components/GadgetStore';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
                 <Link className="nav-link" to="/products">Products</Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link" to="/gadgets">Gadget Store</Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" to="/login">Login</Link>
               </li>
             </ul>
@@ -34,6 +38,7 @@ function App() {
           <Route path="/home" component={Hello}/>
           <Route path="/counter" component={Counter}/>
           <Route path="/products" component={ListProducts}/>
+          <Route path="/gadgets" component={GadgetStore}/>
         </section>
       </div>
     </Router>

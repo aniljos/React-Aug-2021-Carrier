@@ -11,9 +11,58 @@ class EditProduct extends Component{
     constructor(props){
         super(props);
 
-        this.state.current = this.props.product
+        this.state.current = this.props.product;
     }
 
+    // static getDerivedStateFromProps(nextProps, currentState){
+        
+    //     if(nextProps.product.id !== currentState.current.id){
+    //         //return the updated state
+    //         return {
+    //             current: nextProps.product
+    //         }
+    //     }
+    //     else{
+    //         // no updated/change state
+    //         return null;
+    //     }
+
+    // }
+
+    change =(evt) => {
+
+        const value = evt.target.value;
+        const propName = evt.target.name;
+
+        const product = {...this.state.current};
+        product[propName] = value;
+
+        this.setState({
+            current: product
+        });
+    }
+    changePrice =(evt) => {
+
+        const value = evt.target.value;
+
+        const product = {...this.state.current};
+        product.price = value ? parseFloat(value): 0;
+
+        this.setState({
+            current: product
+        });
+    }
+
+    save = () => {
+        if(this.props.onSave){
+            this.props.onSave(this.state.current)
+        }
+    }
+    cancel = () => {
+        if(this.props.onCancel){
+            this.props.onCancel("Updated cancelled");
+        }
+    }
     
     render(){
 
@@ -24,19 +73,20 @@ class EditProduct extends Component{
                 <h4>Edit Product: {current.id}</h4>
                 <div>
                     <label>Name</label>
-                    <input className="form-control" value={current.name}/>
+                    <input type="text" className="form-control" name="name" value={current.name} onChange={this.change}/>
                 </div>
                 <div>
                     <label>Desc</label>
-                    <input className="form-control" value={current.description}/>
+                    <input className="form-control" name="description" value={current.description} onChange={this.change}/>
                 </div>
                 <div>
                     <label>Price</label>
-                    <input className="form-control" value={current.price}/>
+                    <input type="number" className="form-control" value={current.price} 
+                                                                    onChange={this.changePrice}/>
                 </div>
                 <div>
-                    <button className="btn btn-success">Save</button>&nbsp;
-                    <button className="btn btn-warning">Cancel</button>
+                    <button className="btn btn-success" onClick={this.save}>Save</button>&nbsp;
+                    <button className="btn btn-warning" onClick={this.cancel}>Cancel</button>
                 </div>
                 
             </div>
