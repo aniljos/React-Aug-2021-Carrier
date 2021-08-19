@@ -3,31 +3,40 @@ import './App.css';
 import Hello from './components/hello';
 import Counter from './components/counter';
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import ListProducts from './components/ListProducts';
 
 function App() {
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="#">React</a>
-          <ul className="nav">
-            <li className="nav-item">
-              <a className="nav-link active" href="#">Home</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Counter</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Products</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Login</a>
-            </li>
-          </ul>
-        </div>
+    <Router>
+      <div>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div className="container-fluid">
+            <Link className="navbar-brand" to="/home">React</Link>
+            <ul className="nav">
+              <li className="nav-item">
+                <Link className="nav-link active" to="/home">Home</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/counter">Counter</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/products">Products</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/login">Login</Link>
+              </li>
+            </ul>
+          </div>
+        </nav>
 
-      </nav>
-    </div>
+        <section>
+          <Route path="/home" component={Hello}/>
+          <Route path="/counter" component={Counter}/>
+          <Route path="/products" component={ListProducts}/>
+        </section>
+      </div>
+    </Router>
   );
 }
 

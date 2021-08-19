@@ -31,3 +31,7 @@ console.log("userCopy", userCopy);
 // Object.assign()
 
 
+const squares = numbers.map(item => item * item);
+console.log(squares);
+
+
