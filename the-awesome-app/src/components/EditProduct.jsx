@@ -14,6 +14,7 @@ class EditProduct extends Component{
         this.state.current = this.props.product
     }
 
+    
     render(){
 
         const {current} = this.state;

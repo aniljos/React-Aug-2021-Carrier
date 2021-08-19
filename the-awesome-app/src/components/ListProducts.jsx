@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, {Component, PureComponent} from 'react';
 import axios from 'axios';
 import './ListProducts.css';
 import EditProduct from './EditProduct';
 
-class ListProducts extends Component{
+class ListProducts extends PureComponent{
 
     state = {
         data: [],
@@ -11,8 +11,14 @@ class ListProducts extends Component{
     };
     url = "http://localhost:9000/products";
 
+    constructor(props){
+        super(props);
+        console.log("[ListProducts constructor]");
+    }
+
     componentDidMount(){
 
+        console.log("[ListProducts componentDidMount]");
         this.fetch();
        
     }
@@ -82,6 +88,8 @@ class ListProducts extends Component{
         })
     }
     render(){
+
+        console.log("[ListProducts render]");
         return (
             <div>
                 <h3>Products</h3>
@@ -95,6 +103,18 @@ class ListProducts extends Component{
                 </div>
             </div>
         )
+    }
+
+    // shouldComponentUpdate(nextProps, nextState){
+    //     console.log("[ListProducts shouldComponentUpdate]");
+    //     return true;
+    // }
+    componentDidUpdate(){
+        console.log("[ListProducts componentDidUpdate]");
+    }
+
+    componentWillUnmount(){
+        console.log("[ListProducts componentWillUnmount]");
     }
 
 }

@@ -44,9 +44,9 @@ let user1 = {id: 1, name: "Anil"};
 
 const {id, name} = user1;
 
-let data = ["test", "abc"]
+let dataArr = ["test", "abc"]
 
 //const t1 = data[0];
-const [t1, t2] = data;
+const [t1, t2] = dataArr;
 
 
