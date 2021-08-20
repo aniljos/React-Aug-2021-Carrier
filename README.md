@@ -25,3 +25,8 @@
 2. Mock REST API: https://github.com/aniljos/REST-API-Mock
 
 
+### Alternatives
+
+1. AngularJS : Performance issues with mobile browsers
+2. Angular 2.0 > Framework, Dependency on other libraries is less, Higher learning curve, stabily
+3. React > Library, Dependency on other libraries is more, Lesser learning curve, better perfomance and stability

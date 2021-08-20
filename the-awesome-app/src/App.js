@@ -6,6 +6,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import ListProducts from './components/ListProducts';
 import GadgetStore from './components/GadgetStore';
+import UseCallbackDemo from './components/UseCallbackDemo';
 
 
 function App() {
@@ -29,6 +30,9 @@ function App() {
                 <Link className="nav-link" to="/gadgets">Gadget Store</Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link" to="/callback">UseCallback</Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" to="/login">Login</Link>
               </li>
             </ul>
@@ -40,6 +44,7 @@ function App() {
           <Route path="/counter" component={Counter}/>
           <Route path="/products" component={ListProducts}/>
           <Route path="/gadgets" component={GadgetStore}/>
+          <Route path="/callback" component={UseCallbackDemo}/>
         </section>
       </div>
     </Router>
