@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import ListProducts from './components/ListProducts';
 import GadgetStore from './components/GadgetStore';
 
+
 function App() {
   return (
     <Router>
