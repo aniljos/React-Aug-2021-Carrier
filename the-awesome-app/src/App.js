@@ -9,9 +9,12 @@ import GadgetStore from './components/GadgetStore';
 import UseCallbackDemo from './components/UseCallbackDemo';
 import ViewCart from './components/ViewCart';
 import Login from './components/Login';
-
+import ProtectedRoute from './components/ProtectedRoute';
+import { useSelector } from 'react-redux';
 
 function App() {
+
+  const isAuth = useSelector(state => state.auth.isAuth);
   return (
     <Router>
       <div>
@@ -37,21 +40,26 @@ function App() {
               <li className="nav-item">
                 <Link className="nav-link" to="/callback">UseCallback</Link>
               </li>
-              <li className="nav-item">
+              {isAuth ? (<li className="nav-item">
                 <Link className="nav-link" to="/login">Login</Link>
-              </li>
+              </li>) : (
+                <li className="nav-item">
+                  <Link className="nav-link" to="/logout">Logout</Link>
+                </li>)}
             </ul>
           </div>
         </nav>
 
         <section>
-          <Route path="/home" component={Hello}/>
-          <Route path="/counter" component={Counter}/>
-          <Route path="/products" component={ListProducts}/>
-          <Route path="/gadgets" component={GadgetStore}/>
-          <Route path="/callback" component={UseCallbackDemo}/>
-          <Route path="/cart" component={ViewCart}/>
-          <Route path="/login" component={Login}/>
+          <Route path="/home" component={Hello} />
+          <Route path="/counter" component={Counter} />
+          <Route path="/products" component={ListProducts} />
+          {/* <Route path="/gadgets" component={GadgetStore}/> */}
+
+          <ProtectedRoute path="/gadgets" component={GadgetStore} exact />
+          <Route path="/callback" component={UseCallbackDemo} exact />
+          <Route path="/cart" component={ViewCart} />
+          <Route path="/login" component={Login} />
         </section>
       </div>
     </Router>

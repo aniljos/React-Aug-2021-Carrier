@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+
 
 // state = {
 //     searchKey: "",
@@ -20,6 +21,7 @@ function GadgetStore() {
     const [searchKey, setSearchKey] = useState("");
     const [products, setProducts] = useState([]);
     const dispatch = useDispatch();
+    const accessToken = useSelector(reduxStore => reduxStore.auth.accessKey);
     const allProducts = useRef([]);
     //console.log("allProducts", allProducts);
 
@@ -53,7 +55,9 @@ function GadgetStore() {
     async function fetch() {
 
         try {
-            const response = await axios.get("http://localhost:9000/products");
+            const url = process.env.REACT_APP_SECURE_PRODUCTS_URL;
+            const headers = {Authorization : `Bearer ${accessToken}`, Accept: "application/json"}
+            const response = await axios.get(url, {headers});
             setProducts(response.data);
             allProducts.current = response.data;
 

@@ -11,6 +11,12 @@ const initAuthState = {
 const authReducer = (currentState=initAuthState, action) => {
 
     //return the updated State
+    if(action.type === "SET_AUTH"){
+        return {
+            ...action.data
+        };
+    }
+
     return currentState;
 }
 // immutable

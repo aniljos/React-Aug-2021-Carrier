@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import SimpleHOC from './SimpleHOC';
 
 
 class Counter extends Component{
@@ -88,4 +89,4 @@ class Counter extends Component{
     }
 }
 
-export default Counter;
+export default SimpleHOC(Counter);
