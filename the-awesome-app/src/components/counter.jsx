@@ -69,13 +69,13 @@ class Counter extends Component{
                 <p>This is a class component</p>
                 <div>
                     {/* onclick="foo()" */}
-                    <button onClick={this.inc}>Increment</button>&nbsp;
+                    <button data-testid="incBt" onClick={this.inc}>Increment</button>&nbsp;
                     <button onClick={this.decr}>Decrement</button>
                 </div>
                 <br/>
                 <div>
                     {/* Controlled Input */}
-                    Count: <input type="number" value={this.state.count} onChange={this.change}/>
+                    Count: <input data-testid="ctrInp" type="number" value={this.state.count} onChange={this.change}/>
                 </div>
                 <div>
                     {/* Uncontrolled Input */}
