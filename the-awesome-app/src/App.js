@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import ListProducts from './components/ListProducts';
 import GadgetStore from './components/GadgetStore';
 import UseCallbackDemo from './components/UseCallbackDemo';
+import ViewCart from './components/ViewCart';
+import Login from './components/Login';
 
 
 function App() {
@@ -30,6 +32,9 @@ function App() {
                 <Link className="nav-link" to="/gadgets">Gadget Store</Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link" to="/cart">View Cart</Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" to="/callback">UseCallback</Link>
               </li>
               <li className="nav-item">
@@ -45,6 +50,8 @@ function App() {
           <Route path="/products" component={ListProducts}/>
           <Route path="/gadgets" component={GadgetStore}/>
           <Route path="/callback" component={UseCallbackDemo}/>
+          <Route path="/cart" component={ViewCart}/>
+          <Route path="/login" component={Login}/>
         </section>
       </div>
     </Router>
